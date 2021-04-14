@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { createTodo } from '../graphql/mutations'
 import { listTodos } from '../graphql/queries'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 import awsExports from "../aws-exports";
+
 import {
   IonContent,
   IonHeader,
@@ -12,6 +14,9 @@ import {
   IonButton,
   IonInput,
   IonTextarea,
+  IonCard,
+  IonList,
+  IonItem,
 } from '@ionic/react';
 import IonicWrap from './IonicWrap';
 
@@ -68,7 +73,7 @@ const App: React.FC = () => {
               <IonTitle size="large">Blank</IonTitle>
             </IonToolbar>
           </IonHeader>
-          <div>
+          <IonCard>
             <div>
               <IonInput
                 onInput={(e:any) => setInput('name', e.target.value)}
@@ -88,23 +93,20 @@ const App: React.FC = () => {
             <div>
               <IonButton onClick={addTodo}>Create Todo</IonButton>
             </div>
-          </div>
-          <div>
+          </IonCard>
+          <IonList>
             {
               todos.map((todo, index) => (
-                <div key={todo.id ? todo.id : index}>
-                  <p>{todo.name}</p>
-                  <p>{todo.description}</p>
-                </div>
+                <IonItem key={todo.id ? todo.id : index}>
+                  {todo.name} - {todo.description}
+                </IonItem>
               ))
             }
-          </div>
+          </IonList>
         </IonContent>
       </IonPage>
     </IonicWrap>
   )
 };
 
-
-
-export default App;
+export default withAuthenticator(App);
