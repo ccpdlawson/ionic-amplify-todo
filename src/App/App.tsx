@@ -64,7 +64,7 @@ const App: React.FC = () => {
       <IonPage>
         <IonHeader>
           <IonToolbar>
-            <IonTitle>Amplify Todos</IonTitle>
+            <IonTitle>Amplify Test</IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent fullscreen>
@@ -91,7 +91,7 @@ const App: React.FC = () => {
             />
             </div>
             <div>
-              <IonButton onClick={addTodo}>Create Todo</IonButton>
+              <IonButton onClick={addTodo}>Add New</IonButton>
             </div>
           </IonCard>
           <IonList>
