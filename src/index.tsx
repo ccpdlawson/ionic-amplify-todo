@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Amplify from 'aws-amplify';
+import awsExports from './aws-exports';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+
+
+
+
+Amplify.configure(awsExports);
+
+// GraphQL endpoint: `https://fhauuihogjf3xndrnoudcr2eku.appsync-api.us-east-1.amazonaws.com/graphql`
+// GraphQL API KEY: `da2-eiiicy3qyfcitglnkcbziyis7u`
 
 ReactDOM.render(
   <React.StrictMode>
