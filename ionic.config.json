@@ -1,0 +1,7 @@
+{
+  "name": "amplify-ionic-todo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
