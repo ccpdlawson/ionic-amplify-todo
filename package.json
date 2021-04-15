@@ -20,6 +20,7 @@
     "@types/react-router-dom": "^5.1.7",
     "aws-amplify": "^3.3.26",
     "ionicons": "^5.4.0",
+    "jwt-decode": "^3.1.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
