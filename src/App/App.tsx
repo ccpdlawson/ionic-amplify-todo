@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Amplify, { API, graphqlOperation } from 'aws-amplify'
+import Amplify, { API, graphqlOperation, Auth} from 'aws-amplify'
 import { createTodo } from '../graphql/mutations'
 import { listTodos } from '../graphql/queries'
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
@@ -24,6 +24,19 @@ Amplify.configure(awsExports);
 
 
 const App: React.FC = () => {
+  Auth.currentSession().then(res=>{
+    let accessToken = res.getAccessToken()
+    let idToken = res.getIdToken();
+    let jwt = accessToken.getJwtToken()
+    //You can print them to see the full objects
+    console.log(`myAccessToken: ${JSON.stringify(accessToken)}`)
+    console.log(`myJwt: ${jwt}`)
+    console.log('decoded jwt', jwtDecode(jwt))
+    console.log('id-token', idToken)
+    console.log('decoded id-token', idToken.decodePayload())
+
+  })
+
   const initialState = { name: '', description: '' }
   const [formState, setFormState] = useState(initialState)
   const todoInit:any[] = [];
