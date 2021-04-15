@@ -5,6 +5,7 @@ import { listTodos } from '../graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 import awsExports from "../aws-exports";
 
+import jwtDecode from 'jwt-decode';
 import {
   IonContent,
   IonHeader,
